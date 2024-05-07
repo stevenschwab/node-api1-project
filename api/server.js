@@ -61,7 +61,7 @@ server.get('/api/users/:id', async (req, res) => {
 server.delete('/api/users/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        throw new Error('error')
+        const deletedUser = await users.remove(id)
     } catch (err) {
         res.status(500).json({
             message: "The user could not be removed"

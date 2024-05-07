@@ -10,4 +10,6 @@ const server = express();
 // add global middleware to the web server to parse incoming JSON payloads from the request body
 server.use(express.json());
 
-module.exports = {};
+
+// expose the server to other modules
+module.exports = server;

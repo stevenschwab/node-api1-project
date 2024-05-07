@@ -43,7 +43,7 @@ server.get('/api/users', async (req, res) => {
 server.get('/api/users/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        
+        const foundUser = await users.findById(id)
     } catch (err) {
         res.status(500).json({
             message: "The user information could not be retrieved"

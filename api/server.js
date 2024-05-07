@@ -11,13 +11,16 @@ const server = express();
 server.use(express.json());
 
 // endpoints
-server.post('/api/users', (req, res) => {
+server.post('/api/users', async (req, res) => {
     const { name, bio } = req.body;
     try {
         if (!name || !bio) {
             res.status(400).json({
                 message: "Please provide name and bio for the user"
             })
+        } else {
+            const createdUser = await users.insert({ name, bio })
+            res.status(201).json({createdUser})
         }
     } catch (err) {
         res.status(500).json({

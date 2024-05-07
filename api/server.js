@@ -48,6 +48,8 @@ server.get('/api/users/:id', async (req, res) => {
             res.status(404).json({
                 message: "The user with the specified ID does not exist"
             })
+        } else {
+            res.status(200).json({foundUser})
         }
     } catch (err) {
         res.status(500).json({

@@ -41,8 +41,9 @@ server.get('/api/users', async (req, res) => {
 })
 
 server.get('/api/users/:id', async (req, res) => {
+    const { id } = req.params;
     try {
-        throw new Error('error')
+        
     } catch (err) {
         res.status(500).json({
             message: "The user information could not be retrieved"

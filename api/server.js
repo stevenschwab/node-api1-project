@@ -76,5 +76,9 @@ server.delete('/api/users/:id', async (req, res) => {
     }
 })
 
+server.put('/api/users/:id', async (req, res) => {
+    const { id } = req.params;
+})
+
 // expose the server to other modules
 module.exports = server;

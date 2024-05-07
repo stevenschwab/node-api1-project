@@ -31,7 +31,8 @@ server.post('/api/users', async (req, res) => {
 
 server.get('/api/users', async (req, res) => {
     try {
-        throw new Error('error')
+        const foundUsers = await users.find()
+        res.status(200).json({foundUsers})
     } catch (err) {
         res.status(500).json({
             message: "The users information could not be retrieved"

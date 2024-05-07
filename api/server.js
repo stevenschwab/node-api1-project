@@ -29,5 +29,15 @@ server.post('/api/users', async (req, res) => {
     }
 })
 
+server.get('/api/users', async (req, res) => {
+    try {
+        throw new Error('error')
+    } catch (err) {
+        res.status(500).json({
+            message: "The users information could not be retrieved"
+        })
+    }
+})
+
 // expose the server to other modules
 module.exports = server;

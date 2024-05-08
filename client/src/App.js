@@ -48,7 +48,9 @@ function App() {
       <ul>
         {users.map(({id, name, bio}) => (
           <li key={id}>
-            {name} ({bio}) <button onClick={() => deleteUser(id)}>Delete</button>
+            <div>{name}</div>
+            <div>{bio}</div>
+            <button onClick={() => deleteUser(id)}>Delete</button>
           </li>
         ))}
       </ul>

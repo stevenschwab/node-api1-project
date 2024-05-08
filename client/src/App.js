@@ -41,6 +41,20 @@ function App() {
           </li>
         ))}
       </ul>
+      <form>
+        <input
+          type='text'
+          name='name'
+          placeholder='Name'
+          value={form.name}
+        />
+        <input
+          type='text'
+          name='bio'
+          placeholder='Bio'
+          value={form.bio}
+        />
+      </form>
     </div>
   );
 }

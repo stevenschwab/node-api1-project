@@ -16,9 +16,7 @@ function App() {
       .then(res => {
         setUsers(res.data);
       })
-      .catch(err => {
-        console.error('Error fetching users', err);
-      });
+      .catch(err => console.error('Error fetching users', err));
   }, []);
 
   const deleteUser = (id) => {
@@ -26,9 +24,7 @@ function App() {
       .then(res => {
         setUsers(users.filter(user => user.id !== id));
       })
-      .catch(err => {
-        console.error('Error deleting user', err);
-      })
+      .catch(err => console.error('Error deleting user', err));
   };
 
   const handleInputChange = (e) => {

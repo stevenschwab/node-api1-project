@@ -20,7 +20,7 @@ server.post('/api/users', async (req, res) => {
             })
         } else {
             const createdUser = await users.insert({ name, bio })
-            res.status(201).json({createdUser})
+            res.status(201).json({ ...createdUser })
         }
     } catch (err) {
         res.status(500).json({

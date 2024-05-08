@@ -83,6 +83,9 @@ server.put('/api/users/:id', async (req, res) => {
             res.status(400).json({
                 message: "Please provide name and bio for the user"
             })
+        } else {
+            const { id } = req.params;
+            const updatedUser = users.update(id)
         }
     } catch (err) {
         res.status(500).json({

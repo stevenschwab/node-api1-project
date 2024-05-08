@@ -17,7 +17,13 @@ function App() {
 
   return (
     <div>
-
+      <ul>
+        {users.map(({id, name, bio}) => 
+          <li key={id}>
+            {name} ({bio})
+          </li>
+        )}
+      </ul>
     </div>
   );
 }

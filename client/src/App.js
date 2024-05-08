@@ -60,6 +60,7 @@ function App() {
           value={form.bio}
           onChange={handleInputChange}
         />
+        <button type='submit'>Create</button>
       </form>
     </div>
   );

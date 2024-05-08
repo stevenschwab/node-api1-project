@@ -10,6 +10,7 @@ const initialFormValues = {
 function App() {
   const [users, setUsers] = useState([]);
   const [form, setForm] = useState(initialFormValues);
+  const [editId, setEditId] = useState(null);
 
   useEffect(() => {
     axios.get('http://localhost:9000/api/users')

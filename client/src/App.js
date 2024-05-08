@@ -47,12 +47,14 @@ function App() {
           name='name'
           placeholder='Name'
           value={form.name}
+          onChange={handleInputChange}
         />
         <input
           type='text'
           name='bio'
           placeholder='Bio'
           value={form.bio}
+          onChange={handleInputChange}
         />
       </form>
     </div>

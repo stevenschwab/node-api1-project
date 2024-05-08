@@ -50,6 +50,7 @@ function App() {
           <li key={id}>
             <div>{name}</div>
             <div>{bio}</div>
+            <button onClick={() => editUser(id)}>Edit</button>
             <button onClick={() => deleteUser(id)}>Delete</button>
           </li>
         ))}

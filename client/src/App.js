@@ -35,6 +35,16 @@ function App() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:9000/api/users', form)
+      .then(res => {
+        setUsers([ ...users, res.data ]);
+        setForm(initialFormValues);
+      })
+      .catch(err => console.error('Error creating user', err));
+  }
+
   return (
     <div>
       <h1>Users List</h1>

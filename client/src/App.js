@@ -67,7 +67,9 @@ function App() {
           value={form.bio}
           onChange={handleInputChange}
         />
-        <button type='submit'>Create</button>
+        <button type='submit'>
+          {editId !== null && editId !== undefined ? 'Update' : 'Create'}
+        </button>
       </form>
     </div>
   );

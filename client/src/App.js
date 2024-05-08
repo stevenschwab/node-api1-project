@@ -45,7 +45,7 @@ function App() {
           </li>
         ))}
       </ul>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type='text'
           name='name'

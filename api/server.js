@@ -1,19 +1,19 @@
 // import the express library to provide web server functionalities
-const express = require('express');
+const express = require('express')
 
 // import cors at the top of the server file
-const cors = require('cors');
+const cors = require('cors')
 
 // import the custom users model containing the database access utility functions
-const users = require('./users/model');
+const users = require('./users/model')
 
 // create an instance of an express application representing the web server
-const server = express();
+const server = express()
 
 // add global middleware to the web server to parse incoming JSON payloads from the request body
-server.use(express.json());
+server.use(express.json())
 
-//
+// use the cors middleware globally in the web server
 server.use(cors())
 
 // endpoints

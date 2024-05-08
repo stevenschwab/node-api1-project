@@ -63,14 +63,19 @@ function App() {
   }
 
   return (
-    <div>
-      <h1 className='container'>Users List</h1>
+    <div className='container'v>
+      <h1>Users List</h1>
       <ul className='user-list'>
         {users.map(({id, name, bio}) => (
           <li key={id} className='user-item'>
-            {name} <span className='user-bio'>{bio}</span>
-            <button className='button edit' onClick={() => handleEdit({ id, name, bio })}>Edit</button>
-            <button className='button delete' onClick={() => deleteUser(id)}>Delete</button>
+            <div className='user-info'>
+              <div>{name}</div>
+              <span className='user-bio'>({bio})</span>
+            </div>
+            <div className='user-buttons'>
+              <button className='button edit' onClick={() => handleEdit({ id, name, bio })}>Edit</button>
+              <button className='button delete' onClick={() => deleteUser(id)}>Delete</button>
+            </div>
           </li>
         ))}
       </ul>

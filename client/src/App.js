@@ -40,6 +40,11 @@ function App() {
         setForm(initialFormValues);
       })
       .catch(err => console.error('Error creating user', err));
+  };
+
+  const handleEdit = ({ id, name, bio }) => {
+    setForm({ name: name, bio: bio });
+    setEditId(id);
   }
 
   return (
@@ -50,7 +55,7 @@ function App() {
           <li key={id}>
             <div>{name}</div>
             <div>{bio}</div>
-            <button onClick={() => editUser(id)}>Edit</button>
+            <button onClick={() => handleEdit({ id, name, bio })}>Edit</button>
             <button onClick={() => deleteUser(id)}>Delete</button>
           </li>
         ))}

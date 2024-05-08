@@ -85,7 +85,12 @@ server.put('/api/users/:id', async (req, res) => {
             })
         } else {
             const { id } = req.params;
-            const updatedUser = users.update(id)
+            const updatedUser = await users.update(id)
+            if (!updatedUser) {
+                res.status(404).json({
+                    message: "The user with the specified ID does not exist"
+                })
+            }
         }
     } catch (err) {
         res.status(500).json({

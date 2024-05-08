@@ -20,7 +20,7 @@ server.post('/api/users', async (req, res) => {
             })
         } else {
             const createdUser = await users.insert({ name, bio })
-            res.status(201).json({ ...createdUser })
+            res.status(201).json(createdUser)
         }
     } catch (err) {
         res.status(500).json({
@@ -32,7 +32,7 @@ server.post('/api/users', async (req, res) => {
 server.get('/api/users', async (req, res) => {
     try {
         const foundUsers = await users.find()
-        res.status(200).json({foundUsers})
+        res.status(200).json(foundUsers)
     } catch (err) {
         res.status(500).json({
             message: "The users information could not be retrieved"
@@ -49,7 +49,7 @@ server.get('/api/users/:id', async (req, res) => {
                 message: "The user with the specified ID does not exist"
             })
         } else {
-            res.status(200).json({foundUser})
+            res.status(200).json(foundUser)
         }
     } catch (err) {
         res.status(500).json({
@@ -67,7 +67,7 @@ server.delete('/api/users/:id', async (req, res) => {
                 message: "The user with the specified ID does not exist"
             })
         } else {
-            res.status(200).json({deletedUser})
+            res.status(200).json(deletedUser)
         }
     } catch (err) {
         res.status(500).json({
@@ -91,7 +91,7 @@ server.put('/api/users/:id', async (req, res) => {
                     message: "The user with the specified ID does not exist"
                 })
             } else {
-                res.status(200).json({updatedUser})
+                res.status(200).json(updatedUser)
             }
         }
     } catch (err) {

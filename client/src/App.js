@@ -34,18 +34,28 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:9000/api/users', form)
-      .then(res => {
-        setUsers([ ...users, res.data ]);
-        setForm(initialFormValues);
-      })
-      .catch(err => console.error('Error creating user', err));
+    if (editId !== null & editId !== undefined) {
+      axios.put('http://localhost:9000/api/users', form)
+        .then(res => {
+          setUsers(users.map(user => user.id === editId ? res.data : user));
+          setEditId(null);
+          setForm(initialFormValues);
+        })
+        .catch(err => console.error('Error updating user', err));
+    } else {
+      axios.post('http://localhost:9000/api/users', form)
+        .then(res => {
+          setUsers([ ...users, res.data ]);
+          setForm(initialFormValues);
+        })
+        .catch(err => console.error('Error creating user', err));
+    }
   };
 
   const handleEdit = ({ id, name, bio }) => {
     setForm({ name: name, bio: bio });
     setEditId(id);
-  }
+  };
 
   return (
     <div>

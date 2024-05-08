@@ -57,6 +57,11 @@ function App() {
     setEditId(id);
   };
 
+  const clearForm = () => {
+    setForm(initialFormValues);
+    if (editId !== null & editId !== undefined) setEditId(null);
+  }
+
   return (
     <div>
       <h1>Users List</h1>

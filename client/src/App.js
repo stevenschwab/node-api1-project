@@ -64,20 +64,20 @@ function App() {
 
   return (
     <div>
-      <h1>Users List</h1>
-      <ul>
+      <h1 className='container'>Users List</h1>
+      <ul className='user-list'>
         {users.map(({id, name, bio}) => (
-          <li key={id}>
-            <div>{name}</div>
-            <div>{bio}</div>
-            <button onClick={() => handleEdit({ id, name, bio })}>Edit</button>
-            <button onClick={() => deleteUser(id)}>Delete</button>
+          <li key={id} className='user-item'>
+            {name} <span className='user-bio'>{bio}</span>
+            <button className='button edit' onClick={() => handleEdit({ id, name, bio })}>Edit</button>
+            <button className='button delete' onClick={() => deleteUser(id)}>Delete</button>
           </li>
         ))}
       </ul>
-      <form onSubmit={handleSubmit}>
+      <form className='user-form' onSubmit={handleSubmit}>
         <input
           type='text'
+          className='input'
           name='name'
           placeholder='Name'
           value={form.name}
@@ -85,16 +85,17 @@ function App() {
         />
         <input
           type='text'
+          className='input'
           name='bio'
           placeholder='Bio'
           value={form.bio}
           onChange={handleInputChange}
         />
-        <button type='submit'>
+        <button type='submit' className='button submit'>
           {editId !== null && editId !== undefined ? 'Update' : 'Create'}
         </button>
         {(form.name.length > 0 || form.bio.length > 0) && (
-          <button type='button' onClick={clearForm}>Cancel</button>
+          <button type='button' className='button cancel' onClick={clearForm}>Cancel</button>
         )}
       </form>
     </div>

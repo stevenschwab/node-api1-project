@@ -29,7 +29,11 @@ function App() {
       .catch(err => {
         console.error('Error deleting user', err);
       })
-  }
+  };
+
+  const handleInputChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   return (
     <div>

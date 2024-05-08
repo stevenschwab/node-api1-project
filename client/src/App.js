@@ -88,6 +88,9 @@ function App() {
         <button type='submit'>
           {editId !== null && editId !== undefined ? 'Update' : 'Create'}
         </button>
+        {(form.name.length > 0 || form.bio.length > 0) && (
+          <button type='button'>Cancel</button>
+        )}
       </form>
     </div>
   );

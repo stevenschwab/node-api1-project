@@ -2,9 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
+const initialFormValues = {
+  name: '',
+  bio: '',
+};
+
 function App() {
   const [users, setUsers] = useState([]);
-  const [form, setForm] = useState();
+  const [form, setForm] = useState(initialFormValues);
 
   useEffect(() => {
     axios.get('http://localhost:9000/api/users')
